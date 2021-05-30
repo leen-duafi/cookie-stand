@@ -27,7 +27,7 @@ let seattle = {
     averageCookies: 6.3,
     randomCuastomerPerHour: [],
     cookieMultiAverage: [],
-    sumAllCookie:0,
+    sumAllCookie: 0,
 
 
     getRandoomCustomer: function () {
@@ -39,7 +39,7 @@ let seattle = {
 
     },
 
-   
+
     getRandomMuliAverage: function () {
         for (let i = 0; i < hours.length; i++) {
 
@@ -47,57 +47,75 @@ let seattle = {
             //sumAllCookie = sumAllCookie + this.cookieMultiAverage[i]
         }
         console.log(this.cookieMultiAverage)
-        //console.log(smallcookie);
     },
+
+
+
+    getSumCookie: function () {
+        this.sumAllCookie = 0
+        for (let i = 0; 13 < array.length; i++) {
+            this.sumAllCookie += this.cookieMultiAverage
+        }
+       // return this.sumAllCookie ;
+        console.log(this.sumAllCookie())
+
+
+    },
+
+
+
+    //console.log(smallcookie);
+}
 
 
     //getSumAllCookie : function () {
         //for (let i = 0; i < this.cookieMultiAverage.length; i++) {
           // sumAllCookie = sum(this.sumAllCookie,(this.cookieMultiAverage[i]))
           // console.log(this.sumAllCookie)
-            
+
        // }
    // }
 
-    }
-
-     
     
 
-   
-    //function sum(a, b) {
-        //eslint-disable-line
-      //  let answer=a+b;
-      //  return [answer,`The sum of ${a} and ${b} is ${answer}.`]
-      //}
 
-      //sum(3.4);
 
-    //getSumCookie: function (cookieMultiAverage) {
-       // for (let i = 0; i < hours.length; i++) {
-            
-             //   sumAllDayCookie = sumAllDayCookie + cookieMultiAverage[i]
-        //}
 
-       // console.log(sumAllDayCookie)
-   // },
+
+//function sum(a, b) {
+//eslint-disable-line
+//  let answer=a+b;
+//  return [answer,`The sum of ${a} and ${b} is ${answer}.`]
+//}
+
+//sum(3.4);
+
+//getSumCookie: function (cookieMultiAverage) {
+// for (let i = 0; i < hours.length; i++) {
+
+//   sumAllDayCookie = sumAllDayCookie + cookieMultiAverage[i]
+//}
+
+// console.log(sumAllDayCookie)
+// },
 
 
 seattle.getRandoomCustomer();
+seattle.getRandomMuliAverage();
 seattle.getRandomMuliAverage();
 //seattle.getSumAllCookie();
 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-} 
+}
 
+/*
+let parent = document.getElementById('salmoon and cookies');
 
-let parent= document.getElementById('salmoon and cookies');
-
-let articleElement=document.createElement('article');
+let articleElement = document.createElement('article');
 
 parent.appendChild(articleElement);
 
-let h2Element= document.createElement('h2');
+let h2Element = document.createElement('h2');
 
-h2Element.textContent=seattle;
+h2Element.textContent = seattle;*/
