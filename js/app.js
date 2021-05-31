@@ -409,6 +409,7 @@ function CookieShop(location, minCustomer, maxCuastomer, averageCookies) {
     this.randomCuastomerPerHour = [];
     this.cookieMultiAverage = [];
     this.allCookie = 0;
+    //this.cookie=0
     cookieShop.push(this);
 
 
@@ -462,21 +463,65 @@ CookieShop.prototype.getSum = function () {
     for (let i = 0; i < hours.length; i++)
         // this.cookieMultiAverage.push((Math.floor(this.randomCuastomerPerHour[i] * this.averageCookies)));
         this.allCookie = this.allCookie + this.cookieMultiAverage[i];
+        console.log(this.allCookie);
 
 }
+
+
+/*CookieShop.prototype.getSumHours=function(){
+    
+    for (let i = 0; i < hours.length; i++) {
+        let cookie=0
+        cookie=cookie+this.allCookie[0]
+        console.log(cookie);
+       
+        
+    }
+}*/
+
+
+
+CookieShop.prototype.render=function (){
+    //////////one:    link the id from HTML to JS "getElementById"
+    let parent= document.getElementById("cookie");
+    
+    //////////two :    creating element "creatElement"
+    let table=document.createElement('table')
+    ////////// three:  appened parent to child 
+    parent.appendChild(table)
+    //////////four :   again 
+    let tableRaw=document.createElement('tr')
+    table.appendChild(tableRaw)
+    //////////five:    giving value 
+    let Element = document.createElement('th')
+    tableRaw.appendChild(Element)
+    Element.textContent=this.location
+   
+
+for (i=0;i<hours.length;i++){
+     let element = document.createElement('td')
+tableRaw.appendChild(element)
+ element.textContent=this.randomCuastomerPerHour[i]}
+
+    let element = document.createElement('td')
+tableRaw.appendChild(element)
+element.textContent=this.allCookie
+    console.log(parent);
+}
+
+
+
+
+
+console.log(cookieShop);
 
 
 for (let i = 0; i < cookieShop.length; i++) {
     cookieShop[i].getRandom();
     cookieShop[i].getMulti();
     cookieShop[i].getSum();
+    cookieShop[i].render();
+    //cookieShop[i].getSumHours();
+  
+    
 }
-
-console.log(cookieShop);
-
-
-
-
-
-
-
