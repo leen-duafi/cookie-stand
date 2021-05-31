@@ -14,7 +14,7 @@
 // avgCookies=[];
 
 
-
+/*
 
 let hours = [6 + `am`, 7 + `am`, 8 + `am`, 9 + `am`, 10 + `am`, 11 + `am`, 12 + `pm`, 1 + `pm`, 2 + `pm`, 3 + `pm`, 4 + `pm`, 5 + `pm`, 6 + `pm`, 7 + `pm`]
 console.log(hours);
@@ -386,4 +386,97 @@ function randomNumber(min, max) {
     
     
     function randomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min; }
+        return Math.floor(Math.random() * (max - min + 1)) + min; } */
+
+
+
+
+
+////////////////to make it work for more than one we make an array + this.array.push(this ) 3
+let cookieShop = [];
+
+
+
+let hours = [6 + `am`, 7 + `am`, 8 + `am`, 9 + `am`, 10 + `am`, 11 + `am`, 12 + `pm`, 1 + `pm`, 2 + `pm`, 3 + `pm`, 4 + `pm`, 5 + `pm`, 6 + `pm`, 7 + `pm`]
+
+///////////////////make an constructue function 1
+
+function CookieShop(location, minCustomer, maxCuastomer, averageCookies) {
+    this.location = location;
+    this.minCustomer = minCustomer;
+    this.maxCuastomer = maxCuastomer;
+    this.averageCookies = averageCookies;
+    this.randomCuastomerPerHour = [];
+    this.cookieMultiAverage = [];
+    this.allCookie = 0;
+    cookieShop.push(this);
+
+
+}
+
+
+
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+/////////////////method for random number but it is work only for one invoked input  2
+CookieShop.prototype.getRandom = function () {
+    for (let i = 0; i < hours.length; i++)
+        this.randomCuastomerPerHour.push(randomNumber(this.minCustomer, this.maxCuastomer))
+}
+
+let seatle = new CookieShop(`seatle`, 23, 65, 6.3)
+let tokyo = new CookieShop(`tokyo`, 2, 24, 1.2)
+let dubai = new CookieShop(`dubai`, 11, 38, 3.7)
+let paris = new CookieShop(`paris`, 20, 38, 2.3)
+let lima = new CookieShop(`lima`, 2, 16, 4.6)
+
+//seatle.getRandom();
+//console.log(seatle);
+
+
+///////////////to go through all the index of array we need a loop  4
+//for (let i = 0; i < cookieShop.length; i++) {
+//cookieShop[i].getRandom();
+
+//}
+
+////////////////invoke the array function =========array[i].functionName() 5
+//////////////to see the result log it  6
+//console.log(cookieShop); 7
+
+
+//////////////////new function for average * random number 8
+
+CookieShop.prototype.getMulti = function () {
+    for (let i = 0; i < hours.length; i++)
+
+        this.cookieMultiAverage.push((Math.floor(this.randomCuastomerPerHour[i] * this.averageCookies)));
+    //this.allCookie = this.allCookie+this.cookieMultiAverage[i];
+
+}
+
+////////////////////////new function for sum all cookie 
+CookieShop.prototype.getSum = function () {
+    for (let i = 0; i < hours.length; i++)
+        // this.cookieMultiAverage.push((Math.floor(this.randomCuastomerPerHour[i] * this.averageCookies)));
+        this.allCookie = this.allCookie + this.cookieMultiAverage[i];
+
+}
+
+
+for (let i = 0; i < cookieShop.length; i++) {
+    cookieShop[i].getRandom();
+    cookieShop[i].getMulti();
+    cookieShop[i].getSum();
+}
+
+console.log(cookieShop);
+
+
+
+
+
+
+
