@@ -454,6 +454,7 @@ CookieShop.prototype.getMulti = function () {
     for (let i = 0; i < hours.length; i++)
 
         this.cookieMultiAverage.push((Math.floor(this.randomCuastomerPerHour[i] * this.averageCookies)));
+    //this.allCookie+=this.cookieMultiAverage[i];
     //this.allCookie = this.allCookie+this.cookieMultiAverage[i];
 
 }
@@ -463,51 +464,111 @@ CookieShop.prototype.getSum = function () {
     for (let i = 0; i < hours.length; i++)
         // this.cookieMultiAverage.push((Math.floor(this.randomCuastomerPerHour[i] * this.averageCookies)));
         this.allCookie = this.allCookie + this.cookieMultiAverage[i];
-        console.log(this.allCookie);
+    //console.log(this.allCookie);
 
 }
 
+let parent = document.getElementById("cookie");
+let table = document.createElement('table')
+parent.appendChild(table)
 
-/*CookieShop.prototype.getSumHours=function(){
-    
+getHeader = function () {
+
+    let thElement = document.createElement('th')
+    table.append(thElement)
+    thElement.textContent = ('name');
+
     for (let i = 0; i < hours.length; i++) {
-        let cookie=0
-        cookie=cookie+this.allCookie[0]
-        console.log(cookie);
-       
-        
+
+        let thElement = document.createElement('th')
+        table.append(thElement)
+        thElement.textContent = hours[i]
+
     }
-}*/
 
 
 
-CookieShop.prototype.render=function (){
+    let element = document.createElement('th')
+    table.append(element)
+    element.textContent = 'Daily Location Total'
+
+}
+getHeader();
+console.log(parent);
+
+
+
+
+
+
+CookieShop.prototype.render = function () {
     //////////one:    link the id from HTML to JS "getElementById"
-    let parent= document.getElementById("cookie");
-    
-    //////////two :    creating element "creatElement"
-    let table=document.createElement('table')
-    ////////// three:  appened parent to child 
-    parent.appendChild(table)
-    //////////four :   again 
-    let tableRaw=document.createElement('tr')
-    table.appendChild(tableRaw)
-    //////////five:    giving value 
-    let Element = document.createElement('th')
-    tableRaw.appendChild(Element)
-    Element.textContent=this.location
-   
+    // let parent= document.getElementById("cookie");
 
-for (i=0;i<hours.length;i++){
-     let element = document.createElement('td')
-tableRaw.appendChild(element)
- element.textContent=this.randomCuastomerPerHour[i]}
+    //////////two :    creating element "creatElement"
+    //let table=document.createElement('table')
+    ////////// three:  appened parent to child 
+    //parent.appendChild(table)
+    //////////four :   again 
+    //let tableRaw=document.createElement('tr')
+    //table.appendChild(tableRaw)
+    //////////five:    giving value 
+    let trElement = document.createElement('tr')
+    table.appendChild(trElement)
+    let tdElement = document.createElement('td')
+    trElement.appendChild(tdElement)
+    tdElement.textContent = this.location
+
+
+    for (let i = 0; i < hours.length; i++) {
+
+        let tdElement = document.createElement('td')
+        trElement.appendChild(tdElement)
+        tdElement.textContent = this.cookieMultiAverage[i]
+
+
+    }
+
 
     let element = document.createElement('td')
-tableRaw.appendChild(element)
-element.textContent=this.allCookie
+    trElement.appendChild(element)
+    element.textContent = this.allCookie
     console.log(parent);
 }
+
+
+getFooter = function () {
+    let footerTr = document.createElement('tr')
+    table.appendChild(footerTr)
+    let footerTh = document.createElement('th')
+    footerTr.appendChild(footerTh)
+    footerTh.textContent = ('total')
+    let megaTotal = 0;
+
+    for (let i = 0; i < hours.length; i++) {
+        /////////we have to have a var that it will always return a zero after gooing through the loop
+        let allCookieInOneHour = 0;
+        for (let j = 0; j < cookieShop.length; j++) {
+
+            allCookieInOneHour = allCookieInOneHour + cookieShop[j].cookieMultiAverage[i];
+            megaTotal = megaTotal + cookieShop[j].cookieMultiAverage[i];
+        }
+
+        let footerTh = document.createElement('th')
+        footerTr.appendChild(footerTh)
+        footerTh.textContent = allCookieInOneHour
+
+    }
+
+    let totalCookie = document.createElement('th')
+    footerTr.appendChild(totalCookie)
+    totalCookie.textContent = megaTotal
+
+}
+
+
+
+
 
 
 
@@ -521,7 +582,9 @@ for (let i = 0; i < cookieShop.length; i++) {
     cookieShop[i].getMulti();
     cookieShop[i].getSum();
     cookieShop[i].render();
-    //cookieShop[i].getSumHours();
-  
-    
+
+
 }
+
+
+getFooter();
