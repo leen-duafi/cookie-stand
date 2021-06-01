@@ -588,3 +588,5 @@ for (let i = 0; i < cookieShop.length; i++) {
 
 
 getFooter();
+
+

@@ -8,3 +8,102 @@ table,th,td {
     text-align: center;
     border:1px dotted gray;
   }
+
+
+  *{
+    box-sizing: border-box;
+  }
+  
+  body{
+      font-family: Arial, Helvetica, sans-serif;
+      
+      background-color: whitesmoke;
+  }
+
+ 
+  
+  header{
+      
+      text-align: center;
+      background-color:#f1f1f1; 
+
+  }
+  
+  nav{
+      background-color: #333;
+      margin-bottom: 20px;
+  }
+  
+  nav ul{
+      position: relative;
+      /* top  */
+  }
+  
+  nav ul li{
+      display: inline-block;
+      padding: 20px;
+  
+  }
+  
+ 
+  
+  nav ul li a{
+      color: #f2f2f2;
+      text-decoration: none;
+      font-weight: bold;
+  }
+
+footer{
+    
+    background-color: gray;
+    clear: both;
+    height:80px;
+    padding: 0%;
+
+}
+ 
+.first {
+  padding-left:40px;
+  padding-right: 60px;
+  padding-bottom:20px;
+}
+
+
+
+.second{
+ 
+  padding-left: 100px;
+  padding-right: 50px;
+  margin: 0px;
+  padding-bottom:20px;
+
+}
+
+.third{
+  padding-left:50px;
+  padding-right: 0px;
+  padding-right: 10px;
+  padding-bottom:20px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.relative {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #333;
+  color:whitesmoke;
+  background-color:black ;
+}
