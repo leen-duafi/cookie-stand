@@ -595,6 +595,13 @@ function addingShop (event ) {
     event.preventDefault();
     console.log(event);
     
+    /*let newShop= document.createElement('tr')
+    table.appendChild(newShop)
+    let newShopTh = document.createElement('th')
+    newShop.appendChild(newShopTh)
+    newShop=addNewShop;*/
+
+
     let location=event.target.location.value;
     let minCustomer=event.target.minCustomer.value;
     let maxCuastomer=event.target.maxCustomer.value;
@@ -609,14 +616,17 @@ function addingShop (event ) {
 
   console.log(addNewShop);
 
-/*addNewShop.getRandom();
-addNewShop.getMulti();
-addNewShop.getSum();
-addNewShop.render();*/
   
 
 
+  addNewShop.getRandom();
+  addNewShop.getMulti();
+  addNewShop.getSum();
+  addNewShop.render();
 
+  
+  table.textContent='';
+  
 getHeader();
 
   for (let i = 0; i < cookieShop.length; i++) {
@@ -626,5 +636,8 @@ getHeader();
     cookieShop[i].render();
   
   }
+
+ 
+  
   getFooter();
 }
