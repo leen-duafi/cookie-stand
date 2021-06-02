@@ -461,6 +461,7 @@ CookieShop.prototype.getMulti = function () {
 
 ////////////////////////new function for sum all cookie 
 CookieShop.prototype.getSum = function () {
+    this.allCookie=0
     for (let i = 0; i < hours.length; i++)
         // this.cookieMultiAverage.push((Math.floor(this.randomCuastomerPerHour[i] * this.averageCookies)));
         this.allCookie = this.allCookie + this.cookieMultiAverage[i];
@@ -537,6 +538,18 @@ CookieShop.prototype.render = function () {
 }
 
 
+for (let i = 0; i < cookieShop.length; i++) {
+    cookieShop[i].getRandom();
+    cookieShop[i].getMulti();
+    cookieShop[i].getSum();
+    cookieShop[i].render();
+
+
+}
+
+
+
+
 getFooter = function () {
     let footerTr = document.createElement('tr')
     table.appendChild(footerTr)
@@ -566,27 +579,52 @@ getFooter = function () {
 
 }
 
-
-
-
-
-
-
-
-
 console.log(cookieShop);
 
 
-for (let i = 0; i < cookieShop.length; i++) {
+
+table.textContent='';
+
+
+
+let cookieshopFormat=document.getElementById('cookieshopFormat')
+cookieshopFormat.addEventListener('submit',addingShop)
+console.log(cookieshopFormat);
+
+function addingShop (event ) {
+    event.preventDefault();
+    console.log(event);
+    
+    let location=event.target.location.value;
+    let minCustomer=event.target.minCustomer.value;
+    let maxCuastomer=event.target.maxCustomer.value;
+    let averageCookiePerHour=event.target.averageCookiePerHour.value;
+    console.log(typeof( minCustomer));
+
+    minCustomer=parseInt(minCustomer);
+    maxCuastomer=parseInt(maxCuastomer);
+    averageCookiePerHour=parseInt(averageCookiePerHour);
+
+    let addNewShop=new CookieShop(location,minCustomer,maxCuastomer,averageCookiePerHour)
+
+  console.log(addNewShop);
+
+/*addNewShop.getRandom();
+addNewShop.getMulti();
+addNewShop.getSum();
+addNewShop.render();*/
+  
+
+
+
+getHeader();
+
+  for (let i = 0; i < cookieShop.length; i++) {
     cookieShop[i].getRandom();
     cookieShop[i].getMulti();
     cookieShop[i].getSum();
     cookieShop[i].render();
-
-
+  
+  }
+  getFooter();
 }
-
-
-getFooter();
-
-
