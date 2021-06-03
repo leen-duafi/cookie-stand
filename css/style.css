@@ -1,6 +1,9 @@
 table,th,td {
     border: solid black 1px;
     border-collapse: collapse;
+    background-color: bisque;
+    color: cornflowerblue;
+    font-family: 'Indie Flower', cursive;
   }
 
   td {
@@ -17,7 +20,7 @@ table,th,td {
   body{
       font-family: Arial, Helvetica, sans-serif;
       
-      background-color: whitesmoke;
+      background-color: #f4c7ab;
   }
 
  
@@ -25,7 +28,7 @@ table,th,td {
   header{
       
       text-align: center;
-      background-color:#f1f1f1; 
+      background-color:#b2b8a3; 
 
   }
   
@@ -36,6 +39,7 @@ table,th,td {
   
   nav ul{
       position: relative;
+      
       /* top  */
   }
   
@@ -55,7 +59,7 @@ table,th,td {
 
 footer{
     
-    background-color: gray;
+    background-color: #deedf0;
     clear: both;
     height:80px;
     padding: 0%;
@@ -106,4 +110,11 @@ footer{
   border: 3px solid #333;
   color:whitesmoke;
   background-color:black ;
+  font-family: 'Pacifico', cursive;
+}
+
+#cookieshopFormat{
+  background-color:bisque;
+  color:blueviolet;
+
 }
